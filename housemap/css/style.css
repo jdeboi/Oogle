@@ -1,0 +1,249 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(186, 228, 185);
+}
+
+@font-face {
+  font-family: googleFont;
+  src: url("../media/fonts/Product Sans Regular.ttf");
+}
+
+#sidebar {
+  width:400px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  overflow: hidden;
+}
+
+
+.sidebarContainer {
+  padding : 20px;
+  padding-left: 30px;
+  padding-right:30px;
+}
+
+.hamburger {
+  cursor: pointer;
+}
+
+.bar {
+  width: 35px;
+  height: 5px;
+  background-color: #ffffff;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+
+#directionsBox {
+  color: white;
+  height: 200px;
+  width: 100%;
+  background-color: rgb(67, 133, 245);
+}
+
+#directionsBox h1 {
+  font-family: googleFont;
+}
+
+.listItemL {
+  padding: 15px;
+}
+
+.listItemL, .listItemD {
+  padding-left:30px;
+  padding-right: 30px;
+  background-color: white;
+}
+
+.listItemD {
+  padding-top: 15px;
+}
+
+.listItemL:hover {
+  background-color: #F0F0F0;
+}
+
+.listItemL img {
+  padding-right: 15px;
+}
+
+.listItemPodL .listItemPodD {
+  padding: 20px;
+}
+
+.listItemPodD img {
+  margin-right: 20px;
+}
+
+.directionsDis {
+  padding-top: 10px;
+  font-size: 8pt;
+}
+
+
+
+.directionText {
+  display: inline-block;
+}
+
+.summaryDis {
+  font-size : 22px;
+}
+.directionsTime {
+  color: rgb(25, 129, 57);
+}
+
+.directionsDeets {
+  font-size: 13px;
+  color: rgb(100, 100, 100);
+}
+
+.directionsDistance {
+  color: rgb(117, 117, 117);
+}
+
+
+.finalD {
+  font-weight: bold;
+}
+
+
+.routeimg {
+  max-width:12px;
+  height:auto;
+  padding-top: 10px;
+}
+
+form.enterD input[type=text] {
+  color: white;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding-top: 10px;
+  border-bottom: 1px solid rgb(134,172,247);
+}
+
+form.enterD input[type=text]::placeholder {
+  color: rgb(205, 215, 234);
+}
+
+input:focus{
+  outline: none;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mapContainer {
+  height: 100%;
+  width:100%;
+}
+
+.mapContainer svg {
+  height: 100%;
+  width:100%;
+}
+
+.visible {
+  visibility: visible;
+  display:block;
+}
+
+.hidden {
+  visibility: hidden;
+  display: none;
+}
+
+#BRButtons {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+}
+
+#TLButtons {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  text-align: center;
+}
+
+#BRButtons button {
+  width: 50px;
+  height: 50px;
+  font-size:20px;
+  text-align: center;
+  color: darkgray;
+
+  margin: 0 auto;
+  padding: 0;
+  display: inline-block;
+  line-height: 50px;
+  text-align: center;
+}
+
+#dude {
+  background-image: url("../media/dude.png");
+  background-repeat: no-repeat;
+  background-position: -4px -9px;
+}
+
+#swapArrows {
+  text-align: left;
+  width: 20px;
+  height: 20px;
+  background-image: url("../media/icons/arrows.png");
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  background-size: 40px 20px;
+  margin-left: -10px;
+}
+
+.legend div {
+  display: inline-block;
+}
+
+#legendBar {
+  width: 100px;
+  height:5px;
+  margin-left:4px;
+  margin-right: 0px;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+
+
+
+#swapArrows:hover {
+  background-image: url("../media/icons/arrows.png");
+  background-position: -21px 0px;
+}
+
+
+#mapData {
+  position: fixed;
+
+  background-color: white;
+  bottom: 0;
+  right: 0;
+  font-size: 9px;
+  color:black;
+}
+
+#mapData span {
+  padding-right:15px;
+  padding-left:5px;
+}
