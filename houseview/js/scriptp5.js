@@ -4,6 +4,7 @@ let arrowCanvas;
 let onCanvas = true;
 
 
+let webURL = "https://jdeboi.com/Oogle/";
 
 function preload() {
   arrow = loadImage("assets/textures/arrow.png");
@@ -120,7 +121,7 @@ function displayNextRoom() {
 function goToNextRoom() {
   var nextRoom = getNextRoom();
   if (nextRoom != null) {
-    window.location.href= "/houseview/" + "?room=" + nextRoom + "&camefrom=" + roomID;
+    window.location.href= webURL + "houseview/" + "?room=" + nextRoom + "&camefrom=" + roomID;
   }
 }
 
