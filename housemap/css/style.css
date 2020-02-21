@@ -20,7 +20,7 @@ body {
   height: 100%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 
@@ -42,10 +42,14 @@ body {
   transition: 0.4s;
 }
 
+#directions {
+  height: 100%;
+  padding-bottom: 30px;
+}
 
 #directionsBox {
   color: white;
-  height: 200px;
+  padding-bottom:20px;
   width: 100%;
   background-color: rgb(67, 133, 245);
 }

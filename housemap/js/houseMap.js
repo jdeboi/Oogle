@@ -17,7 +17,7 @@ let endLocSelected = false;
 let globalDirections = {};
 
 let zoom = d3.zoom()
-.scaleExtent([.7, 4])
+.scaleExtent([.7, 3.2])
 .on("zoom", zoomed);
 
 let svg = d3.select(".mapContainer svg");
@@ -34,7 +34,7 @@ svg.on("mousemove", function(){
 
 var points = [
   {"id":"porch1", "name": "Front Porch", "icon": "porch", "x": 40, "y":298, "on": false, "connected": ["Foyer"]},
-  {"id":"foyer", "name": "Foyer", "icon": "foyer", "x": 320, "y":162, "on": false, "connected": ["Front Porch", "Living Room"]},
+  {"id":"foyer", "name": "Foyer", "icon": "foyer", "x": 303.5, "y":162, "on": false, "connected": ["Front Porch", "Living Room"]},
   {"id":"living", "name": "Living Room", "icon": "living", "x": 595, "y":162, "on": false, "connected": ["Foyer", "Hall", "Kitchen"]},
   {"id":"hall", "name": "Hall", "icon": "hall", "x": 595, "y":350, "on": false, "connected": ["Bedroom", "Bathroom", "Bathroom Guest", "Bedroom Guest"]},
   {"id":"bathroom1", "name": "Bathroom", "icon":"bathroom", "x": 595, "y":470, "on": false, "connected": ["Hall"]},
@@ -138,7 +138,9 @@ function checkDirections() {
     clearDirectionList();
     clearLocationList();
     directionsSet = true;
-    d3.select("#listDirections").attr("class", "");
+    // d3.select("#listDirections").attr("class", "");
+    d3.select("#directions").style("display", "block")
+    // d3.select("#directionsSummary").style("visibility", "visible")
     displayDirections(points[start].id, points[end].id);
   }
 }
@@ -148,8 +150,10 @@ function clearDirectionList() {
   directionsSet = false;
   resetYellowPaths();
   d3.select("#listDirections").html("");
+  // d3.select("#listDirections").style("visibility", "hidden")
   d3.select("#directionsSummary").html("");
-
+  // d3.select("#directionsSummary").style("visibility", "hidden")
+  d3.select("#directions").style("display", "none")
   // .attr("class", (d) => {
   //   let c = "listItemD";
   //   return c += "";
@@ -241,65 +245,6 @@ function displayDirections(str1, str2) {
 }
 
 
-let labels = [
-  {txt: "front porch", sc: 1},
-  {txt: "foyer", sc: 1},
-  {txt: "living room", sc: 1},
-  {txt: "hall",sc: 1},
-  {txt: "bathroom", sc: 1},
-  {txt: "bedroom", sc: 1},
-  {txt: "bedroom guest",  sc: 1},
-  {txt: "bathroom guest",  sc: 1},
-  {txt: "kitchen",  sc: 1},
-  {txt: "back porch", sc: 1},
-
-  // foyer
-  {txt: "$27,256 in student loan bills", x:220, y:50, sc: 3},
-
-  // bedroom
-  {txt: "love letters from exes", x:300, y:330, sc: 3},
-  {txt: "free flavored condoms", x:380, y:500, sc: 3},
-  {txt: "4 blood-stained period undies", x:350, y:550, sc: 3},
-
-  // bathroom
-  {txt: "15-year-expired laxatives", x:580, y:410, sc: 3},
-  {txt: "rat-sized drain hairball", x:580, y:530, sc: 3},
-  {txt: "mania meds", x:200, y:400, sc: 3},
-
-  // hall
-  {txt: "gross air vent", x:655, y:355, sc: 3},
-
-  // foyer
-  {txt: "Foster Wallace books (for looks)", x:240, y:250, sc: 3},
-  // back porch
-  {txt: "a missing spliff", x:1255, y:400, sc: 3},
-  // front porch
-  {txt: "hidden key", x:55, y:500, sc: 3},
-  // kitchen
-  {txt: "pantry moth infestation", x:1000, y:220, sc: 3},
-  // living
-  {txt: "afternoon delight", x:740, y:170, sc: 3},
-
-  /////////////////// 2
-  {txt: "lukewarm peppermint tea", x:210, y:500, sc: 2},
-  // foyer
-  {txt: "past-due Amazon return", x:355, y:90, sc: 2},
-  // front porch
-  {txt: "sleeping neighbor cats", x:55, y:340, sc: 2},
-  // 2nd bedroom
-  {txt: "$8.34 in small change", x:900, y:420, sc: 2},
-  {txt: "3 weeks of laundry", x:840, y:500, sc: 2},
-
-  // kitchen
-  {txt: "multiple dead cockroaches", x:950, y:260, sc: 2},
-  {txt: "trusty aloe", x:1100, y:80, sc: 2},
-  // back porch
-  {txt: "3 dead potted plants", x:1270, y:330, sc: 2},
-  // living
-  {txt: "color-coordinated physics books", x:700, y:250, sc: 2},
-  {txt: "dope side-of-the-road lamp", x:590, y:50, sc: 2}
-]
-
 for (let i = 0; i < 10; i ++) {
   labels[i].x = points[i].x;
   labels[i].y = points[i].y+3;
@@ -375,9 +320,9 @@ wordsGroup
   return "normal"
 })
 .attr("font-size", (d) => {
-  if (d.sc == 1) return "16px";
+  if (d.sc == 1) return "18px";
   // else if (d.sc == 2) return "18px";
-  return "13px";
+  return "14px";
 })
 .attr("fill", "gray")
 .style("text-anchor", "middle")
@@ -518,7 +463,6 @@ function setTransform(x, y, k, angle) {
 
   iconsGroup
   .selectAll('image')
-  .transition()
   .attr("transform", (d) => {
     let offsetX = d.x;
     let offsetY = d.y;
@@ -532,7 +476,6 @@ function setTransform(x, y, k, angle) {
 
   wordsGroup
   .selectAll('text')
-  .transition()
   .attr("transform", (d, i) => {
     let offsetX = d.x;
     let offsetY = d.y;
@@ -545,8 +488,12 @@ function setTransform(x, y, k, angle) {
   })
   .attr("class", (d) => {
     // zoom goes up as zooms in
-    if (zoomLevel > 1.5) {
+    if (zoomLevel > 2) {
       if (d.sc > 1) return "visible";
+      return "hidden"
+    }
+    else if (zoomLevel > 1.5) {
+      if (d.sc > 1 && d.sc < 4) return "visible";
       return "hidden"
     }
     else if (zoomLevel > 1) {
@@ -919,7 +866,7 @@ function getVerbalDirection(steps, index) {
     let start = getPointByID(steps[index].id).name;
     let end = getPointByID(steps[index+1].id).name;
     let dir = getStepDirection(steps, index);
-    if (dir == "right" || dir == "left") return `Turn ${dir} towards the ${start}`;
+    if (dir == "right" || dir == "left") return `Turn ${dir} towards the ${end}`;
     else if (dir == "straight") return "Go straight towards the " + end;
   }
   return "";
