@@ -1,4 +1,4 @@
-let webURL = "houseview/"
+let webURL = "https://jdeboi.com/Oogle/"
 let containerWidth = +d3.select('.mapContainer').style('width').slice(0, -2)
 let containerHeight = +d3.select('.mapContainer').style('height').slice(0, -2)
 // let currentAngle = 0;
