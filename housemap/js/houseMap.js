@@ -670,7 +670,7 @@ function getNearestPoint() {
     }
   });
 
-  window.location.href = webURL + "?room=" + points[ind].id;//webURL + ind;
+  window.location.href = webURL + "houseview/?room=" + points[ind].id;
 }
 
 function dist(x0, y0, x1, y1) {
