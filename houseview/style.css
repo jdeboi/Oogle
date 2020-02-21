@@ -150,3 +150,13 @@ html, body {
   margin: auto;
   top: 20%;
 }
+
+
+#feedback a {
+  color: black;
+  text-decoration: none;
+}
+
+#feedback a:hover {
+  color: #343A40;
+}
