@@ -101,7 +101,6 @@ html, body {
   right: 30px;
   top:30px;
   font-size:24px;
-  z-index: -200;
   pointer-events: auto;
 }
 
@@ -153,10 +152,11 @@ html, body {
 
 
 #feedback a {
-  color: black;
+  color: white;
   text-decoration: none;
+  pointer-events: auto;
 }
 
 #feedback a:hover {
-  color: #343A40;
+  color: #DDDDDD;
 }
