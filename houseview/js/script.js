@@ -177,7 +177,7 @@ function getCameraStartAngle() {
 function setRotation(camera) {
   // console.log(rot.y*180/Math.PI);
   // console.log(rot.x*180/Math.PI);
-  console.log("hello")
+  console.log("hello2")
   rot.x = camera.rotation.x;
   rot.y = camera.rotation.y+getCameraStartAngle()[0];
   setDudeAngle();
