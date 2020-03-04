@@ -1,3 +1,5 @@
+let webURL = "https://jdeboi.com/Oogle/";
+
 var canvas = document.getElementById("renderCanvas"); // Get the canvas element
 var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
 
@@ -83,7 +85,7 @@ var createScene = function () {
 
   var dome = new BABYLON.PhotoDome(
     "testdome",
-    "./assets/panos/done/" + roomID + ".jpg",
+    webURL + "houseview/assets/panos/done/" + roomID + ".jpg",
     {
       resolution: 32,
       size: 1000
