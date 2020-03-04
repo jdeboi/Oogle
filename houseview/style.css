@@ -41,27 +41,7 @@ html, body {
   right: 30px;
 }
 
-#TLButtons {
-  position: fixed;
-  color: white;
-  padding: 15px;
-  font-family: googleFont;
-  font-size: 14px;
-  left: 0px;
-  top:10px;
-  height: 100px;
-  width: 200px;
-  border-radius: 0px 5px 5px 0px;
-  background-color: rgba(0, 0, 0, .5);
-}
 
-#TLButtons div {
-  padding-left:25px;
-}
-
-#roomID {
-  font-size: 20px;
-}
 
 #mapData {
   position: fixed;
@@ -159,4 +139,49 @@ html, body {
 
 #feedback a:hover {
   color: #DDDDDD;
+}
+
+
+#TLButtons {
+  position: fixed;
+  color: white;
+  font-family: googleFont;
+  font-size: 12px;
+  left: 0px;
+  top:10px;
+  height: 100px;
+  width: 210px;
+  border-radius: 0px 5px 5px 0px;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+
+
+#roomID {
+  font-size: 16px;
+}
+
+#arrowNext {
+  font-size: 16px;
+  padding-left:20px;
+}
+
+#roomDeets {
+  border-left: 1px solid gray;
+}
+
+#TLButtons a {
+  color: white;
+  text-decoration: none;
+  pointer-events: auto;
+}
+
+
+#roomIcon {
+  background-image: url("assets/images/marker.svg");
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 30px;
+  background-size: 15px 30px;
+
 }

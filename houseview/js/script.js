@@ -84,7 +84,7 @@ var createScene = function () {
 
   var dome = new BABYLON.PhotoDome(
     "testdome",
-    "./assets/panos/" + roomID + ".jpg",
+    "./assets/panos/done/" + roomID + ".jpg",
     {
       resolution: 32,
       size: 1000
@@ -96,8 +96,12 @@ var createScene = function () {
 
 
   var alpha = getCameraStartAngle();
-  dome.rotate(BABYLON.Axis.Y, -alpha);
-
+  var offset = getCameraOffsetAngle();
+  let ang = -alpha[0]-offset[0];
+  dome.rotate(BABYLON.Axis.Y, ang);
+  dome.rotate(BABYLON.Axis.X, -offset[1]);
+  dome.rotate(BABYLON.Axis.Z, -offset[2]);
+  // dome.rotate(BABYLON.Axis.Z, -alpha-offset[0]);
   // addMousePad(scene);
 
   // var arrowManager = new BABYLON.SpriteManager("arrowManager", "assets/textures/arrow.png", 100, 100, scene);
@@ -151,16 +155,27 @@ function getDegrees(x) {
   return Math.floor(degrees(x)%360*100)/100;
 }
 
+function getCameraOffsetAngle() {
+  let point = getPointByID(roomID);
+  let pictureAngle = point.start;
+  return pictureAngle.map(function(x) { return x/180*Math.PI; });
+}
+
 function getCameraStartAngle() {
+  // let point = getPointByID(roomID);
   if (cameFromID != "") {
-    let startAngle = getConnectionByID(cameFromID, roomID).bounding[0];
-    return startAngle/180*Math.PI;
+    // let startAngle = getConnectionByID(cameFromID, roomID).bounding[0];
+
+    let startAngle = getConnectionByID(roomID, cameFromID).cameFromAngle;
+    return startAngle.map(function(x) { return x/180*Math.PI; });
   }
   return 0;
 }
 
 function setRotation(camera) {
+  // console.log(rot.y*180/Math.PI);
+  console.log(rot.x*180/Math.PI);
   rot.x = camera.rotation.x;
-  rot.y = camera.rotation.y+getCameraStartAngle();
+  rot.y = camera.rotation.y+getCameraStartAngle()[0];
   setDudeAngle();
 }

@@ -1,13 +1,15 @@
 let cnv;
 let arrow;
+let whiteArrow;
 let arrowCanvas;
 let onCanvas = true;
 
 
 let webURL = "https://jdeboi.com/Oogle/";
-
+// let webURL = "http://localhost:8080/"
 function preload() {
   arrow = loadImage("assets/textures/arrow.png");
+  whiteArrow = loadImage("assets/images/arrow.png");
   arrowCanvas = createGraphics(200, 200);
   checkOnCanvas();
 }
@@ -85,8 +87,13 @@ function compass() {
   let w = 45;
   let t = 16;
   push();
-  translate(windowWidth-50, height-128)
+  translate(windowWidth-50, height-50)
   ellipse(0, 0, w);
+  image(whiteArrow, -14, 0, whiteArrow.width*.5, whiteArrow.height*.5);
+  push();
+  scale(-1, 1);
+  image(whiteArrow, -14, 0, whiteArrow.width*.5, whiteArrow.height*.5);
+  pop();
   rotate(rot.y-PI/2);
   // console.log(degrees(rot.y)%360);
   fill(255, 0, 0);
