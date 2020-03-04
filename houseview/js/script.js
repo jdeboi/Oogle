@@ -1,4 +1,5 @@
 let webURL = "https://jdeboi.com/Oogle/";
+// let webURL = "http://localhost:8080/"
 
 var canvas = document.getElementById("renderCanvas"); // Get the canvas element
 var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
@@ -175,7 +176,8 @@ function getCameraStartAngle() {
 
 function setRotation(camera) {
   // console.log(rot.y*180/Math.PI);
-  console.log(rot.x*180/Math.PI);
+  // console.log(rot.x*180/Math.PI);
+  console.log("hello")
   rot.x = camera.rotation.x;
   rot.y = camera.rotation.y+getCameraStartAngle()[0];
   setDudeAngle();
