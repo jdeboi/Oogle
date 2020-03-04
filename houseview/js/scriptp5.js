@@ -5,8 +5,7 @@ let arrowCanvas;
 let onCanvas = true;
 
 
-// let webURL = "https://jdeboi.com/Oogle/";
-// let webURL = "http://localhost:8080/"
+
 function preload() {
   arrow = loadImage("assets/textures/arrow.png");
   whiteArrow = loadImage("assets/images/arrow.png");

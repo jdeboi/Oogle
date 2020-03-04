@@ -86,7 +86,7 @@ var createScene = function () {
 
   var dome = new BABYLON.PhotoDome(
     "testdome",
-    webURL + "houseview/assets/panos/done/" + roomID + ".jpg",
+    "./assets/panos/done/" + roomID + ".jpg",
     {
       resolution: 32,
       size: 1000
@@ -100,11 +100,12 @@ var createScene = function () {
   var alpha = getCameraStartAngle();
   var offset = getCameraOffsetAngle();
   let ang = -alpha[0]-offset[0];
+  console.log("ANG", alpha, ang);
   dome.rotate(BABYLON.Axis.Y, ang);
-  dome.rotate(BABYLON.Axis.X, -offset[1]);
-  dome.rotate(BABYLON.Axis.Z, -offset[2]);
-  // dome.rotate(BABYLON.Axis.Z, -alpha-offset[0]);
-  // addMousePad(scene);
+
+  // dome.rotate(BABYLON.Axis.X, -offset[1]);
+  // dome.rotate(BABYLON.Axis.Z, -offset[2]);
+
 
   // var arrowManager = new BABYLON.SpriteManager("arrowManager", "assets/textures/arrow.png", 100, 100, scene);
   // var arrow = new BABYLON.Sprite("arrow", arrowManager);
@@ -171,13 +172,12 @@ function getCameraStartAngle() {
     let startAngle = getConnectionByID(roomID, cameFromID).cameFromAngle;
     return startAngle.map(function(x) { return x/180*Math.PI; });
   }
-  return 0;
+  return [0, 0];
 }
 
 function setRotation(camera) {
   // console.log(rot.y*180/Math.PI);
   // console.log(rot.x*180/Math.PI);
-  console.log("hello2")
   rot.x = camera.rotation.x;
   rot.y = camera.rotation.y+getCameraStartAngle()[0];
   setDudeAngle();
