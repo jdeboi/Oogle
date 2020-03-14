@@ -1,59 +1,140 @@
 html,
 body {
   height: 100%;
+  overflow: hidden;
 }
 
 body {
   background-color: rgb(186, 228, 185);
 }
 
-
-#cover {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: black;
-  color: white;
-  font-family: googleFont;
-  font-size: 40px;
-  z-index:800;
-  width: 100%;
-  height:100%;
-  pointer-events: none;
-  padding:40px;
-}
-
-
-@media screen and (min-width: 500px) {
-   #cover {
-     visibility: hidden;
-     display: none;
-   }
-}
-
-@media screen and (max-width: 500px) {
-   #cover {
-     visibility: visible;
-     display: block;
-   }
-}
-
-
 @font-face {
   font-family: googleFont;
   src: url("../media/fonts/Product Sans Regular.ttf");
 }
 
-#sidebar {
-  width:400px;
-  position: fixed;
-  left: 0px;
-  top: 0px;
+#mapContainer {
+  z-index: -100;
   height: 100%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  overflow-y: scroll;
+  width:100%;
 }
+
+#mapContainer svg {
+  height: 100%;
+  width:100%;
+}
+
+/* computer */
+@media screen and (min-width: 860px) {
+  .mobile {
+    visibility: hidden;
+    display: none;
+  }
+
+  #sidebar {
+    width:400px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow-y: scroll;
+  }
+
+  #BRButtons {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+  }
+
+  #directionsList {
+    display: none;
+    padding-bottom: 30px;
+  }
+
+  #mapData {
+    position: fixed;
+
+    background-color: white;
+    bottom: 0;
+    right: 0;
+    font-size: 9px;
+    color:black;
+  }
+
+  #mapData span {
+    padding-right:15px;
+    padding-left:5px;
+  }
+
+
+}
+
+/* MOBILE   */
+@media screen and (max-width: 860px) {
+  .computer {
+    visibility: hidden;
+    display: none;
+  }
+
+  .mobile {
+    z-index: 100;
+  }
+
+  #blueBoxMobile {
+    width:100%;
+    height: 180px;
+    left: 0px;
+    top: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow-y: scroll;
+  }
+
+
+  #locationsListMobile {
+    display: none;
+    position: relative;
+    width: 100%;
+  }
+
+  #directionsMobile {
+    position: fixed;
+    overflow-y: scroll;
+    width:100%;
+    bottom: 0px;
+    background-color: white;
+    box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  #directionsListMobile {
+    display: none;
+    position: relative;
+    top: 0;
+    padding-bottom: 30px;
+  }
+
+  #buttonsMobile {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+  }
+
+  #mapContainer{
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  #BRButtons {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+  }
+
+
+}
+
 
 
 .sidebarContainer {
@@ -69,24 +150,24 @@ body {
 .bar {
   width: 35px;
   height: 5px;
-  background-color: #ffffff;
+  background-color: .ffffff;
   margin: 6px 0;
   transition: 0.4s;
 }
 
-#directions {
+.directions {
   height: 100%;
   padding-bottom: 30px;
 }
 
-#directionsBox {
+.directionsBox {
   color: white;
   padding-bottom:20px;
   width: 100%;
   background-color: rgb(67, 133, 245);
 }
 
-#directionsBox h1 {
+.directionsBox h1 {
   font-family: googleFont;
 }
 
@@ -105,7 +186,7 @@ body {
 }
 
 .listItemL:hover {
-  background-color: #F0F0F0;
+  background-color: .F0F0F0;
 }
 
 .listItemL img {
@@ -182,15 +263,7 @@ input:focus{
   margin-right: auto;
 }
 
-.mapContainer {
-  height: 100%;
-  width:100%;
-}
 
-.mapContainer svg {
-  height: 100%;
-  width:100%;
-}
 
 .visible {
   visibility: visible;
@@ -202,27 +275,22 @@ input:focus{
   display: none;
 }
 
-#BRButtons {
-  position: fixed;
-  bottom: 20px;
-  right: 10px;
-}
 
-#TLButtons {
+
+.TLButtons {
   position: fixed;
   top: 10px;
   left: 10px;
   text-align: center;
 }
 
-#BRButtons button {
-  width: 50px;
-  height: 50px;
+
+.mapButton {
   font-size:20px;
   text-align: center;
   color: darkgray;
 
-  margin: 0 auto;
+  margin: 10 auto;
   padding: 0;
   display: inline-block;
   line-height: 50px;
@@ -230,27 +298,20 @@ input:focus{
 }
 
 #dude {
+  width: 50px;
+  height: 50px;
   background-image: url("../media/dude.png");
   background-repeat: no-repeat;
   background-position: -4px -9px;
 }
 
-#swapArrows {
-  text-align: left;
-  width: 20px;
-  height: 20px;
-  background-image: url("../media/icons/arrows.png");
-  background-repeat: no-repeat;
-  background-position: 0px 0px;
-  background-size: 40px 20px;
-  margin-left: -10px;
-}
+
 
 .legend div {
   display: inline-block;
 }
 
-#legendBar {
+.legendBar {
   width: 100px;
   height:5px;
   margin-left:4px;
@@ -261,35 +322,30 @@ input:focus{
 }
 
 
+.arrows {
+  text-align: left;
+  width: 20px;
+  height: 20px;
+  background-image: url("../media/icons/arrows.png");
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  background-size: 40px 20px;
+  margin-left: -10px;
+}
 
-
-#swapArrows:hover {
+.arrows:hover {
   background-image: url("../media/icons/arrows.png");
   background-position: -21px 0px;
 }
 
 
-#mapData {
-  position: fixed;
-
-  background-color: white;
-  bottom: 0;
-  right: 0;
-  font-size: 9px;
-  color:black;
-}
-
-#mapData span {
-  padding-right:15px;
-  padding-left:5px;
-}
 
 
-#feedback a {
+.feedback a {
   color: black;
   text-decoration: none;
 }
 
-#feedback a:hover {
-  color: #343A40;
+.feedback a:hover {
+  color: .343A40;
 }

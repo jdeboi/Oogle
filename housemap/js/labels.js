@@ -75,3 +75,21 @@ let labels = [
 
 
 ];
+
+let points = [
+  {"id":"porch1", "name": "Front Porch", "icon": "porch", "x": 40, "y":298, "on": false, "connected": ["Foyer"]},
+  {"id":"foyer", "name": "Foyer", "icon": "foyer", "x": 303.5, "y":162, "on": false, "connected": ["Front Porch", "Living Room"]},
+  {"id":"living", "name": "Living Room", "icon": "living", "x": 595, "y":162, "on": false, "connected": ["Foyer", "Hall", "Kitchen"]},
+  {"id":"hall", "name": "Hall", "icon": "hall", "x": 595, "y":350, "on": false, "connected": ["Bedroom", "Bathroom", "Bathroom Guest", "Bedroom Guest"]},
+  {"id":"bathroom1", "name": "Bathroom", "icon":"bathroom", "x": 595, "y":470, "on": false, "connected": ["Hall"]},
+  {"id":"bedroom1", "name": "Bedroom", "icon":"bedroom", "x": 293, "y":452, "on": false, "connected": ["Hall"]},
+  {"id":"bedroom2", "name": "Bedroom Guest", "icon":"bedroom", "x": 1009, "y":408, "on": false, "connected": ["Hall", "Bathroom Guest"]},
+  {"id":"bathroom2", "name": "Bathroom Guest", "icon":"bathroom", "x": 1115, "y":532, "on": false, "connected": ["Bedroom Guest"]},
+  {"id":"kitchen", "name": "Kitchen", "icon":"kitchen", "x": 1008, "y":183, "on": false, "connected": ["Living Room", "Back Porch"]},
+  {"id":"porch2", "name": "Back Porch", "icon": "porch", "x": 1257, "y":293, "on": false, "connected": ["Kitchen"]}
+];
+
+for (let i = 0; i < 10; i ++) {
+  labels[i].x = points[i].x;
+  labels[i].y = points[i].y+3;
+}
