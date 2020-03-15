@@ -22,7 +22,7 @@ function setup() {
 function draw() {
   clear();
   // background(255, 0, 0);
-  if (onCanvas) drawMouse();
+  if (onCanvas && !isMobile) drawMouse();
   compass();
   // displayNextRoom();
 }

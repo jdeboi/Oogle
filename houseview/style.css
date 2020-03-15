@@ -6,31 +6,6 @@ html, body {
   padding: 0;
 }
 
-#cover {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: black;
-  color: white;
-  font-family: googleFont;
-  font-size: 40px;
-  z-index:800;
-  width: 100%;
-  height:100%;
-  display: inline-block;
-  pointer-events: none;
-  text-align: center;
-  padding: 50px;
-}
-
-
-@media screen and (min-width: 700px) {
-   #cover {
-     visibility: hidden;
-     display: none;
-   }
-}
-
 
 #renderCanvas {
   width: 100%;
@@ -129,6 +104,11 @@ html, body {
   text-align: center;
 }
 
+#loadingScreen div {
+  height: 100%;
+  width: 100%;
+}
+
 #houseViewer {
   position: fixed;
   bottom: 30px;
@@ -210,4 +190,18 @@ html, body {
   height: 30px;
   background-size: 15px 30px;
 
+}
+
+@media screen and (max-width: 700px) {
+  #mapData {
+    display: none;
+  }
+
+  #loadingScreen  {
+    font-size: 80px;
+  }
+
+  #houseViewer {
+    display: none;
+  }
 }

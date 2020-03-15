@@ -5,6 +5,7 @@ var canvas = document.getElementById("renderCanvas"); // Get the canvas element
 var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
 
 var url = window.location.href;
+var isMobile = screen.width <= 700;
 var startId = url.indexOf("?");
 var endId = url.indexOf("&");
 var roomID = "";
@@ -16,8 +17,8 @@ if (endId > -1) {
   roomID = url.substring(startId+6, endId);
   cameFromID = url.substring(endId+10, url.length);
 }
-else roomID = url.substring(startId+6, url.length);
-
+else if (startId > -1) roomID = url.substring(startId+6, url.length);
+else roomID = "kitchen"
 
 // let clicked = {x:0, y:0};
 let rot = {x:0, y:0};
@@ -159,6 +160,7 @@ function getDegrees(x) {
 }
 
 function getCameraOffsetAngle() {
+  console.log("ROOM", roomID)
   let point = getPointByID(roomID);
   let pictureAngle = point.start;
   return pictureAngle.map(function(x) { return x/180*Math.PI; });
