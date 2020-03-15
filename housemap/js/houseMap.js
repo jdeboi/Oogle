@@ -1,6 +1,6 @@
 
 
-// let webURL = "https://jdeboi.com/Oogle/"
+let webURL = "https://jdeboi.com/Oogle/"
 let isMobile = screen.width <= 860;
 let dudeIsClicked = false;
 
