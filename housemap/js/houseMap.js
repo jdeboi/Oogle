@@ -8,7 +8,7 @@ function dudeClicked() {
   dudeIsClicked = true;
 }
 
-d3.xml(webURL + 'housemap/media/house.svg')
+d3.xml(webURL + 'housemap/media/adobeFiles/houseMap.svg')
 .then(data => {
   if (!isMobile) d3.select("#mapContainer").node().append(data.documentElement);
   else d3.select("#mapContainerMobile").node().append(data.documentElement);
