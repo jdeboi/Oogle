@@ -42,6 +42,9 @@ var createScene = function () {
   var camera = new BABYLON.UniversalCamera("FreeCamara",  new BABYLON.Vector3(0, 0, -10), scene);
   camera.inertia = 0;
   camera.angularSensibility = -600;
+  if (isMobile) {
+    camera.inputs.attached.touch.touchAngularSensibility = -12000;
+  }
   camera.attachControl(canvas, true);
 
   setRotation(camera);
