@@ -4,8 +4,9 @@ let webURL = "https://jdeboi.com/Oogle/";
 var canvas = document.getElementById("renderCanvas"); // Get the canvas element
 var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
 
-var url = window.location.href;
 var isMobile = screen.width <= 700;
+
+var url = window.location.href;
 var startId = url.indexOf("?");
 var endId = url.indexOf("&");
 var roomID = "";
@@ -43,6 +44,7 @@ var createScene = function () {
   camera.inertia = 0;
   camera.angularSensibility = -600;
   if (isMobile) {
+    console.log("CAM", camera)
     camera.inputs.attached.touch.touchAngularSensibility = -12000;
   }
   camera.attachControl(canvas, true);

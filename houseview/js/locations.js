@@ -4,7 +4,7 @@ var points = [
     "name": "Front Porch",
     "connected":[{"id": "foyer", "bounding": [112], "cameFromAngle":[-71]}],
     "dudePos": [53, -90],
-    "start":[210, 0, 10]
+    "start":[0, 0, 10]
   },
   {
     "id":"foyer",
@@ -59,7 +59,7 @@ var points = [
       {"id": "hall", "bounding": [149], "cameFromAngle":[0]}
     ],
     "dudePos": [-24, -137],
-    "start":[-90, 0, 0]
+    "start":[-190, 0, 0]
   },
 
   {
